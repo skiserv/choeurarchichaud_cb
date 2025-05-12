@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "Trebuchet MS";
+  src: local("Trebuchet MS"),
+    url("fonts/Trebuchet-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Trebuchet MS";
+  src: local("Trebuchet MS"), url("fonts/Trebuchet-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Trebuchet MS";
+  src: local("Trebuchet MS"),
+    url("fonts/Trebuchet-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Trebuchet MS";
+  src: local("Trebuchet MS"),
+    url("fonts/Trebuchet-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: #2749c9;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+}
+
+h2,
+h3,
+h4 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 1.6em 0 0.6em 0;
+}
+
+h2 {
+  text-align: right;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  border-top: 0.1rem solid black;
+  border-bottom: 0.1rem solid black;
+}
+
+/* Page d'accueil */
+#home li {
+  text-transform: uppercase;
+}
+
+tr,
+td,
+table {
+  width: fit-content;
+  text-wrap: nowrap;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 1rem;
+  display: block;
+  white-space: nowrap;
+}
+
+blockquote {
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+  opacity: 0.7;
+  margin-bottom: 0.6em;
+  position: relative;
+  border-left: 2px solid grey;
+}
+
+/* ------- General ------- */
+p,
+ul,
+ol {
+  max-width: 60ch;
+  /* Limit line-length to 60 characters */
+  margin-bottom: 0.6em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li::marker {
+  content: "\2022   ";
+}
+
+li {
+  margin-bottom: 0.2em;
+}
+
+ul,
+ol {
+  padding-left: 2ch;
+}
