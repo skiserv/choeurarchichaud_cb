@@ -29,6 +29,13 @@
   font-style: italic;
 }
 
+:root {
+  --primary-color: #5d0085;
+  --background-color: rgb(201, 255, 229);
+}
+
+/* -------------------------------------------------------- */
+/* --------------------- Global style --------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -36,80 +43,193 @@
 
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  color: var(--primary-color);
 }
 
 body {
+  width: 100%;
+  padding: 0 3vw;
   line-height: 1.4;
+  background-color: var(--background-color);
 }
 
-a {
-  text-decoration: none;
-  color: #2749c9;
+section {
+  width: 100%;
+  max-width: 45rem;
+  padding: 1rem;
+  scroll-margin: 5rem;
+  margin: 5rem auto;
+  background-color: white;
+  box-shadow: 0px 5px 2px 1px var(--primary-color);
+
+  /* Needed to center it with `position: absolute;` inherited */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-a:hover {
-  border-bottom: 1px solid;
+/* -------------------------------------------------- */
+/* --------------------- Header --------------------- */
+header {
+  padding: 0.5rem 3vw;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  align-items: center;
+  background-color: var(--background-color);
+  border-bottom: dotted var(--primary-color) 2px;
 }
 
-h2,
-h3,
-h4 {
+header > h1 {
   font-size: 1em;
-  font-weight: 600;
-  margin: 1.6em 0 0.6em 0;
+  letter-spacing: 0.6em;
+  transform: skewX(8deg);
 }
 
-h2 {
-  text-align: right;
+header > h1 > a {
+  text-decoration: none;
+}
+
+header > h1:hover {
+  background: linear-gradient(
+    90deg,
+    rgb(48, 0, 99) 8%,
+    rgba(255, 153, 238, 1) 70%,
+    rgba(178, 83, 237, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 1s ease;
+}
+
+/* ----------------------------------------------- */
+/* --------------------- Nav --------------------- */
+nav {
+  display: flex;
+  gap: 0;
+}
+
+nav > a {
+  white-space: nowrap;
+  padding: 0 1rem;
+  text-align: center;
+  border-left: 2px dotted var(--primary-color);
+  align-content: center;
+  transform: skewX(8deg);
+  font-size: 0.8em;
+  text-decoration: none;
+}
+
+nav a:last-of-type {
+  border-right: dotted var(--primary-color) 2px;
+}
+
+nav > a:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(173, 255, 217, 1) 8%,
+    rgba(255, 153, 238, 1) 70%,
+    rgb(138, 70, 212) 100%
+  );
+}
+
+/* ---------------------------------------------------------- */
+/* --------------------- TableOfContent --------------------- */
+.lang {
+  text-transform: lowercase;
+  font-size: 0.7em;
+  display: inline-block; /* needed for transform */
+  transform: skewX(8deg);
+}
+
+.lang::before,
+.lang::after {
+  content: "--";
+}
+
+.toc li {
   text-transform: uppercase;
-  margin-bottom: 3rem;
-  border-top: 0.1rem solid black;
-  border-bottom: 0.1rem solid black;
 }
 
-/* Page d'accueil */
-#home li {
-  text-transform: uppercase;
+.toc a {
+  text-decoration: none;
 }
 
-tr,
-td,
+.toc li::marker {
+  content: "";
+}
+
+/* ------------------------------------------------ */
+/* --------------------- Tags --------------------- */
+.tags {
+  margin: 2rem 0;
+  position: relative;
+}
+
+.tags a {
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 0.7em;
+  transform: skewX(8deg);
+  background-color: var(--background-color);
+  border: solid var(--primary-color) 3px;
+  border-radius: 10px;
+  padding: 0.5em;
+  width: 12vw;
+  min-width: fit-content;
+  text-align: center;
+  box-shadow: 0px 5px 2px 1px var(--primary-color);
+  text-decoration: none;
+}
+
+.tags a:hover {
+  color: white;
+  background: #adffd9;
+  background: linear-gradient(
+    90deg,
+    rgba(173, 255, 217, 1) 8%,
+    rgba(255, 153, 238, 1) 70%,
+    rgb(138, 70, 212) 100%
+  );
+}
+
+.tags::before {
+  content: url("/custom/fleurs.png");
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* -------------------------------------------------- */
+/* --------------------- Tables --------------------- */
 table {
-  width: fit-content;
-  text-wrap: nowrap;
-}
-
-table {
-  border-collapse: separate;
+  overflow-y: scroll;
+  max-width: 100%;
+  border-collapse: collapse;
   border-spacing: 1rem;
   display: block;
   white-space: nowrap;
 }
 
-blockquote {
-  margin-left: 1rem;
-  padding-left: 0.5rem;
-  opacity: 0.7;
-  margin-bottom: 0.6em;
-  position: relative;
-  border-left: 2px solid grey;
+tr,
+td {
+  width: fit-content;
+  text-wrap: nowrap;
 }
 
-/* ------- General ------- */
+th,
+td {
+  padding: 0.3rem;
+  border: 1px dotted var(--primary-color);
+}
+
+/* --------------------------------------------------- */
+/* --------------------- General --------------------- */
 p,
 ul,
 ol {
   max-width: 60ch;
   /* Limit line-length to 60 characters */
   margin-bottom: 0.6em;
-}
-
-ul {
-  list-style-type: none;
-}
-
-ul li::marker {
-  content: "\2022   ";
 }
 
 li {
@@ -119,4 +239,40 @@ li {
 ul,
 ol {
   padding-left: 2ch;
+}
+
+#_a_propos,
+#_comment_modifier,
+#_echauffements {
+  font-size: 0.8em;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+  transform: skewX(18deg);
+  letter-spacing: 0.7em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.1em;
+}
+
+h3 {
+  font-size: 0.9em;
+}
+
+blockquote {
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+  opacity: 0.7;
+  margin-bottom: 0.6em;
+  position: relative;
+  border-left: 1px dotted var(--primary-color);
 }
